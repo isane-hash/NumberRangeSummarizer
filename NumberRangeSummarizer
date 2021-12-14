@@ -58,15 +58,13 @@ public static void main(String[] args) {
 		System.out.println(list4.stream().collect(new CollectorSummery()));
 				
 	}
-		
-	
-	
 
-}class CollectorSummery implements Collector<Integer, List<String>, List<String>>{
+}
+
+class CollectorSummery implements Collector<Integer, List<String>, List<String>>{
 
     private int last = 0;
     private LinkedList<Integer> collected_array = new LinkedList<>();
-
     
     public Supplier<List<String>> supplier(){
         return ArrayList::new;
@@ -107,7 +105,6 @@ public static void main(String[] args) {
         };
     }
 
-    
     public Function<List<String>, List<String>> finisher(){
         return ( LastList ) -> {
             if( !collected_array.isEmpty() ){
@@ -116,6 +113,5 @@ public static void main(String[] args) {
             return LastList;
         };
     }
-
 
 }
